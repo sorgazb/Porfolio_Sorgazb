@@ -1,0 +1,184 @@
+---
+// Header.astro
+---
+
+<header class="fixed top-0 z-50 flex items-center justify-center w-full mx-auto transition-all duration-300" id="main-header">
+  <nav class="flex px-3 py-2 text-sm font-medium rounded-full justify-center items-center transition-all duration-300 backdrop-blur-md w-full max-w-[1200px]" id="main-nav">
+    
+    <div class="hidden min-[426px]:flex space-x-4">
+        <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="">
+            Experiencia
+        </a>
+        <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="">
+            Proyectos
+        </a>
+        <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="">
+            Sobre mí
+        </a>
+        <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="">
+            Contacto
+        </a>
+        
+        <div class="relative">
+            <button id="theme-toggle-btn" class="appearance-none border-none flex hover:text-blue-500 dark:hover:text-blue-500">  
+                <svg id="light" class="theme-toggle-icon size-5 transition-all" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="scale: 0;">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+                    <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7"></path>
+                </svg>
+                <svg id="dark" class="theme-toggle-icon absolute size-5 transition-all" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" style="scale: 1;">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z"></path>
+                </svg>
+            </button>
+        
+            <div id="themes-menu" class="absolute hidden scale-80 top-8 right-0 text-sm p-1 min-w-[8rem] rounded-md border border-gray-100 bg-white/90 dark:bg-gray-900/90 dark:border-gray-500/20 shadow-[0_3px_10px_rgb(0,0,0,0.2)] backdrop-blur-md">
+                <ul>
+                    <li class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">Light</li>
+                    <li class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">Dark</li>
+                    <li class="themes-menu-option px-2 py-1.5 cursor-default hover:bg-neutral-400/40 dark:hover:bg-gray-500/50 rounded-sm">System</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="flex items-center gap-3">
+      <button id="mobile-menu-button" class="min-[426px]:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+        <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+
+  <div id="mobile-menu" class="min-[426px]:hidden hidden absolute top-full left-0 right-0 mt-1 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg rounded-b-lg py-3 transition-all duration-300">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="/#experiencia">Experiencia</a>
+      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="/#proyectos">Proyectos</a>
+      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="/#sobre-mi">Sobre mí</a>
+      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="mailto:miduga@gmail.com">Contacto</a>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.getElementById('main-nav');
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const scrollThreshold = 20;
+
+    function updateNavBackground() {
+      if (window.scrollY > scrollThreshold) {
+        nav.classList.add('bg-white/90', 'dark:bg-gray-900/90', 'shadow-md', 'border', 'border-gray-100', 'dark:border-gray-700/30');
+        nav.classList.remove('bg-transparent', 'shadow-none', 'border-transparent');
+      } else {
+        nav.classList.remove('bg-white/90', 'dark:bg-gray-900/90', 'shadow-md', 'border', 'border-gray-100', 'dark:border-gray-700/30');
+        nav.classList.add('bg-transparent', 'shadow-none', 'border-transparent');
+      }
+    }
+    
+    updateNavBackground();
+    window.addEventListener('scroll', updateNavBackground);
+    mobileMenuButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuButton.querySelector('svg');
+      icon.classList.toggle('rotate-90');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.contains(e.target)) {
+        mobileMenu.classList.add('hidden');
+        mobileMenuButton.querySelector('svg').classList.remove('rotate-90');
+      }
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        mobileMenuButton.querySelector('svg').classList.remove('rotate-90');
+      });
+    });
+
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themesMenu = document.getElementById('themes-menu');
+    const themeOptions = document.querySelectorAll('.themes-menu-option');
+    
+    themeToggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      themesMenu.classList.toggle('hidden');
+    });
+    
+    themeOptions.forEach(option => {
+      option.addEventListener('click', () => {
+        const theme = option.textContent.toLowerCase();
+        localStorage.setItem('theme', theme);
+        updateTheme();
+        themesMenu.classList.add('hidden');
+      });
+    });
+    
+
+  });
+</script>
+
+<style is:global>
+  #main-header {
+    max-width: 1200px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  #main-nav {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  #mobile-menu {
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 40;
+    width: 100%;
+  }
+
+  #mobile-menu:not(.hidden) {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Animación para el icono hamburguesa */
+  #mobile-menu-button svg {
+    transition: transform 0.3s ease;
+  }
+  
+  #mobile-menu-button svg.rotate-90 {
+    transform: rotate(90deg);
+  }
+
+  @media (max-width: 425px) {
+    #main-nav {
+      padding: 0.5rem 1rem;
+    }
+    
+    .min-\[426px\]\:hidden {
+      display: block !important;
+    }
+    
+    .min-\[426px\]\:flex {
+      display: none !important;
+    }
+  }
+  
+  @media (max-width: 425px) {
+    #desktop-menu {
+      display: none;
+    }
+  }
+</style>
