@@ -10,22 +10,17 @@ import Layout from '../layouts/Layout.astro';
 				<div class="text-4xl font-bold">
 					<span>Hey, soy</span>
 					<span class="bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text">Sergio Orgaz</span>
-					<div class="flex flex-row items-center mt-4">
+					<div class="flex justify-center md:justify-start mt-6">
 						<a href="https://www.linkedin.com/in/sergio-orgaz-bravo-3b488a302" target="_blank"
-							class="flex items-center transition md:justify-center"> 
-							<div class="flex items-center ">
-								<span class="relative inline-flex overflow-hidden rounded-full p-[1px]"> 
-									<span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]">
-									</span> 
-									<div class="inline-flex items-center justify-center w-full px-3 py-1 text-sm text-blue-800 bg-blue-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap">
-										Disponible para trabajar 
-									</div> 
-								</span> 
-							</div> 
+							class="relative inline-flex overflow-hidden rounded-full p-[1px] transition">
+							<span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]"></span>
+							<div class="relative inline-flex items-center justify-center w-full px-3 py-1 text-sm text-blue-800 bg-blue-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap">
+							Disponible para trabajar
+							</div>
 						</a>
-					</div> 
+					</div>
 				</div>
-				<div class="text-3xl font-bold mt-2 ">
+				<div class="text-3xl font-bold mb-6">
 					<span>Desarrollador de Aplicaciones Webs, apasionado de</span>
 					<div class="rotating-text ml-1 relative inline-block h-auto">
 						<span class="rotating-text__item bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text">desarrollar aplicaciones unicas.</span>
@@ -34,7 +29,7 @@ import Layout from '../layouts/Layout.astro';
 						<span class="rotating-text__item bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text">trabajar en equipo.</span>
 					</div>
 				</div>
-				<div>
+				<div class="mt-2">
 					<ul class="flex flex-row flex-wrap justify-center gap-4 md:justify-start">
 						<li>
 							<a href="https://www.linkedin.com/in/sergio-orgaz-bravo-3b488a302" target="_blank" class="linkedin-btn">
@@ -69,5 +64,6 @@ import Layout from '../layouts/Layout.astro';
 				src="https://media.licdn.com/dms/image/v2/D4D03AQFqqiNJSWJeHw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1714907277104?e=2147483647&v=beta&t=gTcST7fXJYISlpO9TlUq7Z7ZOwCGE0az6gT62eV3V60" alt="sorgazb logo">
 			</div>
 		</div>
-	<Skills />
+		<div class="my-32"></div>
+		<Skills />
 </Layout>
