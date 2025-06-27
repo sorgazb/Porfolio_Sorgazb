@@ -1,5 +1,6 @@
 ---
 import Skills from '../components/Skills.astro';
+import WorkExperience from '../components/WorkExperience.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
@@ -12,7 +13,7 @@ import Layout from '../layouts/Layout.astro';
 					<span class="bg-gradient-to-r from-cyan-500 to-blue-500 inline-block text-transparent bg-clip-text">Sergio Orgaz</span>
 					<div class="flex justify-center md:justify-start mt-6">
 						<a href="https://www.linkedin.com/in/sergio-orgaz-bravo-3b488a302" target="_blank"
-							class="relative inline-flex overflow-hidden rounded-full p-[1px] transition">
+							class="relative inline-flex overflow-hidden rounded-full p-[3px] transition">
 							<span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#51E4B8_0%,#21554E_50%,#51E4B8_100%)]"></span>
 							<div class="relative inline-flex items-center justify-center w-full px-3 py-1 text-sm text-blue-800 bg-blue-100 rounded-full cursor-pointer dark:bg-gray-800 dark:text-white/80 backdrop-blur-3xl whitespace-nowrap">
 							Disponible para trabajar
@@ -64,6 +65,10 @@ import Layout from '../layouts/Layout.astro';
 				src="https://media.licdn.com/dms/image/v2/D4D03AQFqqiNJSWJeHw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1714907277104?e=2147483647&v=beta&t=gTcST7fXJYISlpO9TlUq7Z7ZOwCGE0az6gT62eV3V60" alt="sorgazb logo">
 			</div>
 		</div>
-		<div class="my-32"></div>
+		<div class="my-32">
 		<Skills />
+		</div>
+		<div class="my-32">
+		<WorkExperience />
+		</div>
 </Layout>

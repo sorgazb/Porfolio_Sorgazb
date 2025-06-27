@@ -1,28 +1,25 @@
 ---
-// Header.astro
----
 
+---
 <header class="fixed top-0 z-50 flex items-center justify-center w-full mx-auto transition-all duration-300" id="main-header">
   <nav class="flex px-3 py-2 text-sm font-medium rounded-full justify-center items-center transition-all duration-300 backdrop-blur-md w-full max-w-[1200px]" id="main-nav">
-    
     <div class="hidden min-[426px]:flex space-x-4">
-        <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="/#skills">
-            Skills
-        </a>
-        <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="">
-            Experiencia
-        </a>
-        <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="">
-            Proyectos
-        </a>
-        <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="">
-            Sobre mí
-        </a>
-        <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="">
-            Contacto
-        </a>
+      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="/#skills">
+        Skills
+      </a>
+      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="/#workexperience">
+        Experiencia
+      </a>
+      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="">
+        Proyectos
+      </a>
+      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="">
+        Sobre mí
+      </a>
+      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="">
+        Contacto
+      </a>
     </div>
-
     
     <div class="flex items-center gap-3">
       <button id="mobile-menu-button" class="min-[426px]:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
@@ -32,12 +29,11 @@
       </button>
     </div>
   </nav>
-
-
+  
   <div id="mobile-menu" class="min-[426px]:hidden hidden absolute top-full left-0 right-0 mt-1 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg rounded-b-lg py-3 transition-all duration-300">
     <div class="max-w-[1200px] mx-auto px-4">
       <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="/#skills">Skills</a>
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="">Experiencia</a>
+      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="/#workexperience">Experiencia</a>
       <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="">Proyectos</a>
       <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="">Sobre mí</a>
       <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="">Contacto</a>
@@ -46,45 +42,94 @@
 </header>
 
 <script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const nav = document.getElementById('main-nav');
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const scrollThreshold = 20;
-
-    function updateNavBackground() {
-      if (window.scrollY > scrollThreshold) {
-        nav.classList.add('bg-white/90', 'dark:bg-gray-900/90', 'shadow-md', 'border', 'border-gray-100', 'dark:border-gray-700/30');
-        nav.classList.remove('bg-transparent', 'shadow-none', 'border-transparent');
-      } else {
-        nav.classList.remove('bg-white/90', 'dark:bg-gray-900/90', 'shadow-md', 'border', 'border-gray-100', 'dark:border-gray-700/30');
-        nav.classList.add('bg-transparent', 'shadow-none', 'border-transparent');
-      }
-    }
-    
-    updateNavBackground();
-    window.addEventListener('scroll', updateNavBackground);
-    mobileMenuButton.addEventListener('click', (e) => {
-      e.stopPropagation();
-      mobileMenu.classList.toggle('hidden');
-      const icon = mobileMenuButton.querySelector('svg');
-      icon.classList.toggle('rotate-90');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!mobileMenu.contains(e.target)) {
-        mobileMenu.classList.add('hidden');
-        mobileMenuButton.querySelector('svg').classList.remove('rotate-90');
-      }
-    });
-
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        mobileMenuButton.querySelector('svg').classList.remove('rotate-90');
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.getElementById('main-nav');
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const scrollThreshold = 20;
+  const navLinks = Array.from(document.querySelectorAll('#main-nav a'));
+  const sections = navLinks.map(link => {
+    const id = link.getAttribute('href')?.split('#')[1];
+    return id ? document.getElementById(id) : null;
+  }).filter(Boolean);
+  
+  function setActiveLink(link) {
+    navLinks.forEach(a => a.classList.toggle('active', a === link));
+  }
+  navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        setActiveLink(link);
       });
     });
+    
+    const observer = new IntersectionObserver((entries) => {
+      const visibles = entries.filter(e => e.isIntersecting);
+      if (visibles.length > 0) {
+        const mejor = visibles.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        const id = mejor.target.id;
+        const link = navLinks.find(a =>
+        a.getAttribute('href')?.endsWith(`#${id}`)
+      );
+      if (link) {
+        setActiveLink(link);
+      }
+    } else {
+      navLinks.forEach(a => a.classList.remove('active'));
+    }
+  }, {
+    root: null,
+    rootMargin: '0px 0px -50% 0px',
+    threshold: Array.from({ length: 101 }, (_, i) => i / 100)
   });
+  
+  sections.forEach(sec => observer.observe(sec));
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      setActiveLink(link);  
+      const id = link.getAttribute('href').split('#')[1];
+      const target = document.getElementById(id);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+  
+  sections.forEach(sec => observer.observe(sec));
+
+  function updateNavBackground() {
+    if (window.scrollY > scrollThreshold) {
+      nav.classList.add('bg-white/90', 'dark:bg-gray-900/90', 'shadow-md', 'border', 'border-gray-100', 'dark:border-gray-700/30');
+      nav.classList.remove('bg-transparent', 'shadow-none', 'border-transparent');
+    } else {
+      nav.classList.remove('bg-white/90', 'dark:bg-gray-900/90', 'shadow-md', 'border', 'border-gray-100', 'dark:border-gray-700/30');
+      nav.classList.add('bg-transparent', 'shadow-none', 'border-transparent');
+    }
+  }
+  
+  updateNavBackground();
+  window.addEventListener('scroll', updateNavBackground);
+  mobileMenuButton.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.toggle('hidden');
+    const icon = mobileMenuButton.querySelector('svg');
+    icon.classList.toggle('rotate-90');
+  });
+  
+  document.addEventListener('click', (e) => {
+    if (!mobileMenu.contains(e.target)) {
+      mobileMenu.classList.add('hidden');
+      mobileMenuButton.querySelector('svg').classList.remove('rotate-90');
+    }
+  });
+  
+  
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenuButton.querySelector('svg').classList.remove('rotate-90');
+    });
+  });
+});
 </script>
 
 <style is:global>
@@ -99,6 +144,16 @@
   #main-nav {
     transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   }
+
+  /* puedes poner esto en tu <style is:global> o en tu global.css */
+#main-nav a {
+  color: inherit;
+  transition: color 0.3s;
+}
+
+#main-nav a.active {
+  color: #3b82f6; /* blue-500 */
+}
 
   #mobile-menu {
     transform: translateY(-20px);
