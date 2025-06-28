@@ -1,6 +1,7 @@
 ---
-import fotoHTSports from '../../public/assets/746shots_so.webp';
-import fotoCardMatchingGame from '../../public/assets/48shots_so.webp'
+import fotoHTSports from '../assets/746shots_so.webp';
+import fotoCardMatchingGame from '../assets/48shots_so.webp'
+import Image from 'astro/components/Image.astro';
 ---
 <section id="projects" data-section="projects" class="pt-16">
     <div class="px-5">
@@ -9,7 +10,10 @@ import fotoCardMatchingGame from '../../public/assets/48shots_so.webp'
         </h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
             <div class="col-span-1 overflow-hidden rounded-lg border-3 border-gray-700">
-                <img class="transition-transform duration-1000 ease-in-out hover:scale-125" src={fotoHTSports.src} alt="">
+                <!-- <img class="transition-transform duration-1000 ease-in-out hover:scale-125" src={fotoHTSports.src} alt=""> -->
+                <Image src={fotoHTSports}
+                    alt={"HT Sports Project"}
+                    class:list={["w-full", "h-auto", "object-cover", "transition-transform", "duration-1000", "ease-in-out", "hover:scale-125"]} />
             </div>
             <div class="col-span-1 text-center md:text-left flex flex-col items-center md:items-start gap-4">
                 <h1 class="text-3xl font-bold">HT Sports</h1>
@@ -68,7 +72,8 @@ import fotoCardMatchingGame from '../../public/assets/48shots_so.webp'
             </div>
 
             <div class="col-span-1 overflow-hidden rounded-lg border-3 border-gray-700">
-                <img class="transition-transform duration-1000 ease-in-out hover:scale-125" src={fotoCardMatchingGame.src} alt="">
+                <!-- <img class="transition-transform duration-1000 ease-in-out hover:scale-125" src={fotoCardMatchingGame.src} alt=""> -->
+                 <Image src={fotoCardMatchingGame} alt={"Card Matching Game"} class:list={["w-full", "h-auto", "object-cover", "transition-transform", "duration-1000", "ease-in-out", "hover:scale-125"]} />
             </div>
             <div class="col-span-1 text-center md:text-left flex flex-col items-center md:items-start gap-4">
                 <h1 class="text-3xl font-bold">Card Matching Game</h1>
