@@ -20,7 +20,9 @@ const { title, description } = Astro.props;
 		<div class="max-w-[1200px] flex flex-col justify-center mx-auto transition-colors duration-300">
 			<Header />
 			<main class="flex-1 pt-20">
-				<slot />
+				<div class="my-32">
+					<slot />
+				</div>
 			</main>
 		</div>
 	</body>
