@@ -16,6 +16,10 @@ export default defineConfig({
     }
   }),
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [tailwindcss()],
+    define: {
+      // Usar variables de entorno de Vercel en producción
+      'import.meta.env.SENDGRID_API_KEY': JSON.stringify(process.env.SENDGRID_API_KEY)
+    }
   }
 });
