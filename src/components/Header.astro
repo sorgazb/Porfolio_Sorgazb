@@ -149,15 +149,14 @@ document.addEventListener('DOMContentLoaded', () => {
     transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
   }
 
-  /* puedes poner esto en tu <style is:global> o en tu global.css */
-#main-nav a {
-  color: inherit;
-  transition: color 0.3s;
-}
+  #main-nav a {
+    color: inherit;
+    transition: color 0.3s;
+  }
 
-#main-nav a.active {
-  color: #3b82f6; /* blue-500 */
-}
+  #main-nav a.active {
+    color: #3b82f6;
+  }
 
   #mobile-menu {
     transform: translateY(-20px);
@@ -173,8 +172,6 @@ document.addEventListener('DOMContentLoaded', () => {
     opacity: 1;
     pointer-events: auto;
   }
-
-  /* Animación para el icono hamburguesa */
   #mobile-menu-button svg {
     transition: transform 0.3s ease;
   }

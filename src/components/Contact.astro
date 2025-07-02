@@ -1,73 +1,38 @@
 ---
 // src/components/ContactForm.astro
 ---
+<section id="contact" data-section="contact" class="pt-16">
+  <div class="px-5">
+    <h1 class="text-3xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text mb-6">
+      Contacto
+    </h1>
+    <div class="max-w-2xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">  
+      <form id="contact-form" class="space-y-4">
+        
+        <div>
+          <label for="name" class="block mb-1 text-gray-700 dark:text-gray-300">Nombre</label>
+          <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="Tu nombre"/>
+        </div>
 
-<div class="max-w-2xl mx-auto p-6 bg-white dark:bg-gray-800 rounded-xl shadow-lg">
-  <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">Contáctame</h2>
-  
-  <form 
-    id="contact-form"
-    class="space-y-4"
-  >
-    <div>
-      <label for="name" class="block mb-1 text-gray-700 dark:text-gray-300">Nombre</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        required
-        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-        placeholder="Tu nombre"
-      />
+        <div>
+          <label for="email" class="block mb-1 text-gray-700 dark:text-gray-300">Correo</label>
+          <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="tu@correo.com"/>
+        </div>
+        
+        <div>
+          <label for="message" class="block mb-1 text-gray-700 dark:text-gray-300">Mensaje</label>
+          <textarea id="message" name="message" rows="5" required class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white" placeholder="Tu mensaje..."></textarea>
+        </div>
+        
+        <button type="submit" id="submit-btn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300">
+          Enviar mensaje
+        </button>
+      </form>
+      
+      <div id="form-status" class="mt-4 p-4 rounded-lg hidden"></div>
     </div>
-
-    <div>
-      <label for="email" class="block mb-1 text-gray-700 dark:text-gray-300">Correo</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-        placeholder="tu@correo.com"
-      />
-    </div>
-
-    <div>
-      <label for="subject" class="block mb-1 text-gray-700 dark:text-gray-300">Asunto</label>
-      <input
-        type="text"
-        id="subject"
-        name="subject"
-        required
-        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-        placeholder="Sobre qué quieres hablar"
-      />
-    </div>
-
-    <div>
-      <label for="message" class="block mb-1 text-gray-700 dark:text-gray-300">Mensaje</label>
-      <textarea
-        id="message"
-        name="message"
-        rows="5"
-        required
-        class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-        placeholder="Tu mensaje..."
-      ></textarea>
-    </div>
-
-    <button
-      type="submit"
-      id="submit-btn"
-      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300"
-    >
-      Enviar mensaje
-    </button>
-  </form>
-
-  <div id="form-status" class="mt-4 p-4 rounded-lg hidden"></div>
-</div>
+  </div>
+</section>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
@@ -80,12 +45,10 @@
     contactForm.addEventListener('submit', async (e) => {
       e.preventDefault();
       
-      // Mostrar estado de carga
       submitBtn.disabled = true;
       submitBtn.textContent = 'Enviando...';
       statusDiv.classList.add('hidden');
       
-      // Obtener datos del formulario
       const formData = new FormData(contactForm);
       const data = Object.fromEntries(formData.entries());
       
@@ -120,8 +83,7 @@
           : 'bg-red-100 text-red-700'
       }`;
       statusDiv.classList.remove('hidden');
-      
-      // Ocultar el mensaje después de 5 segundos
+
       setTimeout(() => {
         statusDiv.classList.add('hidden');
       }, 5000);

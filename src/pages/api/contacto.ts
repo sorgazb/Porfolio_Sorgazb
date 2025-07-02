@@ -9,10 +9,8 @@ interface ContactFormData {
 }
 
 export const POST: APIRoute = async ({ request }) => {
-  // Parsear los datos del formulario
   const data: ContactFormData = await request.json();
   
-  // Validar los datos
   if (!data.name || !data.email || !data.subject || !data.message) {
     return new Response(JSON.stringify({ error: 'Todos los campos son requeridos' }), {
       status: 400,
@@ -20,7 +18,6 @@ export const POST: APIRoute = async ({ request }) => {
     });
   }
 
-  // Validar formato de email
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(data.email)) {
     return new Response(JSON.stringify({ error: 'Formato de email inválido' }), {
@@ -30,20 +27,18 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   try {
-    // Configurar el transportador con SendGrid
     const transporter = nodemailer.createTransport({
       host: 'smtp.sendgrid.net',
       port: 587,
       auth: {
-        user: 'apikey', // ¡Literalmente la palabra 'apikey'!
-        pass: process.env.SENDGRID_API_KEY, // Tu API Key de SendGrid
+        user: 'apikey',
+        pass: process.env.SENDGRID_API_KEY,
       },
     });
 
-    // Configurar el correo
     await transporter.sendMail({
-      from: 'sorgazb@gmail.com', // Debe ser un email verificado en SendGrid
-      to: 'sorgazb@gmail.com', // Tu email
+      from: 'sorgazb@gmail.com',
+      to: 'sorgazb@gmail.com',
       replyTo: data.email,
       subject: `Nuevo mensaje: ${data.subject}`,
       html: `
