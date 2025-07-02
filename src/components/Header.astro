@@ -1,26 +1,36 @@
 ---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import SelectLang from './SelectLang.astro';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+const isDefaultLang = lang === 'es';
+const basePath = isDefaultLang ? '' : `/${lang}`;
 ---
 <header class="fixed top-0 z-50 flex items-center justify-center w-full mx-auto transition-all duration-300" id="main-header">
   <nav class="flex px-3 py-2 text-sm font-medium rounded-full justify-center items-center transition-all duration-300 backdrop-blur-md w-full max-w-[1200px]" id="main-nav">
     <div class="hidden min-[426px]:flex space-x-4">
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="/#workexperience">
-        Experiencia
+      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#workexperience`}>
+        {t('experience')}
       </a>
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="/#studies">
-        Estudios
+      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#studies`}>
+        {t('studies')}
       </a>
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="/#projects">
-        Proyectos
+      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#projects`}>
+        {t('projects')}
       </a>
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="/#skills">
-        Skills
+      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#skills`}>
+        {t('skills')}
       </a>
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="/#aboutme">
-        Sobre mí
+      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#aboutme`}>
+        {t('about-me')}
       </a>
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href="/#contact">
-        Contacto
+      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#contact`}>
+        {t('contact')}
+      </a>
+      <a href="/#">
+        <SelectLang />
       </a>
     </div>
     
@@ -35,12 +45,15 @@
   
   <div id="mobile-menu" class="min-[426px]:hidden hidden absolute top-full left-0 right-0 mt-1 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg rounded-b-lg py-3 transition-all duration-300">
     <div class="max-w-[1200px] mx-auto px-4">
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="/#workexperience">Experiencia</a>
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="/#studies">Estudios</a>
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="/#projects">Proyectos</a>
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="/#skills">Skills</a>
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="/#aboutme">Sobre mí</a>
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href="/#contact">Contacto</a>
+      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#workexperience`}>{t('experience')}</a>
+      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#studies`}>{t('studies')}</a>
+      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#project`}>{t('projects')}</a>
+      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#skills`}>{t('skills')}</a>
+      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#aboutme`}>{t('about-me')}</a>
+      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#contact`}>{t('contact')}</a>
+      <a href="/#">
+        <SelectLang />
+      </a>
     </div>
   </div>
 </header>

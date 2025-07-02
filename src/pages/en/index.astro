@@ -1,12 +1,12 @@
 ---
-import AboutMe from '../components/AboutMe.astro';
-import Contact from '../components/Contact.astro';
-import Projects from '../components/Projects.astro';
-import Skills from '../components/Skills.astro';
-import Studies from '../components/Studies.astro';
-import WorkExperience from '../components/WorkExperience.astro';
-import Layout from '../layouts/Layout.astro';
-import { useTranslations } from "../i18n/utils";
+import AboutMe from '../../components/AboutMe.astro';
+import Contact from '../../components/Contact.astro';
+import Projects from '../../components/Projects.astro';
+import Skills from '../../components/Skills.astro';
+import Studies from '../../components/Studies.astro';
+import WorkExperience from '../../components/WorkExperience.astro';
+import Layout from '../../layouts/Layout.astro';
+import { useTranslations } from "../../i18n/utils";
 const lang = (Astro.url.pathname.split('/')[1] as "es" | "en") || 'es';
 const t = useTranslations(lang);
 ---
