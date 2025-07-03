@@ -1,9 +1,12 @@
 ---
+import { useTranslations } from "../i18n/utils";
+const lang = (Astro.url.pathname.split('/')[1] as "es" | "en") || 'es';
+const t = useTranslations(lang);
 ---
 <section id="studies" data-section="studies" class="pt-16">
   <div class="px-5">
     <h1 class="text-3xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text mb-6">
-      Estudios
+      {t('studies')}
     </h1>
     <ol class="relative border-s-3 dark:border-blue-700">  
       <li class="relative mb-10 flex">
@@ -14,21 +17,16 @@
           </div>
           <div class="mt-5">
             <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-              Septiembre 2023 - Junio 2025
+              {t('fechas-gsdaw')}
             </time>
             <h2 class="text-xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text">
-              Grado Superior en Desarrollo de Aplicaciones Web
+              {t('titulo-gsdaw')}
             </h2>
             <h3 class="text-lg font-bold">
               IES Augustóbriga
             </h3>
             <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-              Durante mi formación en el Grado Superior en Desarrollo de Aplicaciones Web en el IES Augustóbriga, adquirí una solida base en programación 
-              y desarrollo de aplicaciones, tanto de escritorio como web. Aprendí a trabajar con Java utilizando IDEs como Eclipse y Visual Studio Code,
-              y herramientas de control de versiones como Git y GitHub. Profundicé en bases de datos con MySQL. En el ámbito del desarrollo web,
-              me familiaricé con HTML, CSS y JavaScript, y trabajé con frameworks como React y Angular. En el desarrollo backend, construí APIs RESTful
-              con PHP, Laravel y Node.js. Además de aprender sobre la gestión de proyectos y metodologías ágiles, como Scrum. Y usar herramientas de nube 
-              como AWS.
+              {t('descripcion-gsdaw')}
             </p>
             <div class="mt-4 flex items-center flex-wrap gap-3">
               <div class="flex items-center gap-2 rounded-4xl border-2 border-gray-700 text-gray-700 hover:border-orange-500 p-2 hover:text-white hover:bg-orange-300 hover:shadow-lg shadow-orange-500/50">
@@ -119,21 +117,16 @@
           </div>
           <div class="mt-5">
             <time class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
-              Septiembre 2020 - Julio 2023
+              {t('fechas-giic')}
             </time>
             <h2 class="text-xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text">
-              Grado en Ingeniería Informática de Computadores
+              {t('titulo-giic')}
             </h2>
             <h3 class="text-lg font-bold">
-              Universidad de Extremadura UEX
+              {t('universidad-extremadura')}
             </h3>
             <p class="text-base font-normal text-gray-500 dark:text-gray-400">
-              Durante mi formación en el Grado en Ingeniería Informática de Computadores en la UEX, adquirí una sólida base en programación,
-              estructuras de datos, bases de datos y sistemas operativos. Participé en proyectos prácticos que me permitieron aplicar 
-              mis conocimientos teóricos a situaciones reales, desarrollando habilidades en la resolución de problemas y el trabajo en equipo.
-              Además, tuve la oportunidad de explorar áreas como la inteligencia artificial. Utilicé lenguajes de programación como Java y C++,
-              y trabajé con bases de datos SQL. Desafortunadamente, no pude finalizar el grado debido a problemas personales, pero en el futuro
-              espero poder retomar mis estudios y completar mi formación académica.
+              {t('descripcion-giic')}
             </p>
             <div class="mt-4 flex items-center flex-wrap gap-3">
               <div class="flex items-center gap-2 rounded-4xl border-2 border-gray-700 text-gray-700 hover:border-blue-500 p-2 hover:text-white hover:bg-blue-300 hover:shadow-lg shadow-blue-500/50">

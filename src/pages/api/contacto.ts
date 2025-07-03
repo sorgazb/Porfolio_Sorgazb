@@ -4,14 +4,13 @@ import nodemailer from 'nodemailer';
 interface ContactFormData {
   name: string;
   email: string;
-  subject: string;
   message: string;
 }
 
 export const POST: APIRoute = async ({ request }) => {
   const data: ContactFormData = await request.json();
   
-  if (!data.name || !data.email || !data.subject || !data.message) {
+  if (!data.name || !data.email || !data.message) {
     return new Response(JSON.stringify({ error: 'Todos los campos son requeridos' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
@@ -40,12 +39,11 @@ export const POST: APIRoute = async ({ request }) => {
       from: 'sorgazb@gmail.com',
       to: 'sorgazb@gmail.com',
       replyTo: data.email,
-      subject: `Nuevo mensaje: ${data.subject}`,
+      subject: `Nuevo mensaje`,
       html: `
         <h3>Nuevo mensaje de contacto</h3>
         <p><strong>Nombre:</strong> ${data.name}</p>
         <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Asunto:</strong> ${data.subject}</p>
         <p><strong>Mensaje:</strong></p>
         <p>${data.message.replace(/\n/g, '<br>')}</p>
       `,

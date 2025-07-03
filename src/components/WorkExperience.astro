@@ -1,11 +1,13 @@
 ---
-
+import { useTranslations } from "../i18n/utils";
+const lang = (Astro.url.pathname.split('/')[1] as "es" | "en") || 'es';
+const t = useTranslations(lang);
 ---
 
 <section id="workexperience" data-section="workexperience" class="pt-16">
   <div class="px-5">
     <h1 class="text-3xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text mb-6">
-      Experiencia Laboral
+      {t('experience')}
     </h1>
     <ol class="relative border-s-3 dark:border-blue-700">  
       <li class="relative mb-10 flex">
@@ -25,22 +27,16 @@
             <div class="mt-5">
               <time
                 class="mb-1 text-sm font-normal leading-none text-gray-400 dark:text-gray-500"
-                >Marzo 2025 - Junio 2025</time
+                >{t('fechas-nttdata-practicas')}</time
               >
               <h2
                 class="text-xl font-semibold bg-gradient-to-r from-cyan-500 to-blue-500 text-transparent bg-clip-text"
               >
-                Trainee de Arquitectura de Integración
+                {t('puesto-nttdata-practicas')}
               </h2>
               <h3 class="text-lg font-bold">NTT DATA</h3>
               <p class="text-base font-normal text-gray-400">
-                Durante mi periodo de formación participé activamente en el
-                diseño y la implementación de soluciones de arquitectura de
-                integración, incluyendo el desarrollo y la documentación de APIs
-                RESTful con Swagger (OpenAPI), la construcción de flujos de
-                integración usando MuleSoft Y Anypoint Platform, y la gestión y
-                publicación de APIs en Apigee, configurando políticas de
-                seguridad.
+                {t('descripcion-nttdata-practicas')}
               </p>
               <div class="mt-4 flex items-center flex-wrap gap-3">
                 <div

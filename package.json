@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@astrojs/node": "^9.2.2",
-    "@astrojs/vercel": "^8.2.0",
+    "@astrojs/vercel": "^8.0.4",
     "@fontsource-variable/onest": "^5.2.9",
     "@tailwindcss/vite": "^4.1.10",
     "astro": "^5.10.1",
