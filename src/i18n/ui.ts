@@ -40,7 +40,10 @@ export const ui = {
         'tu-correo' : 'tu@correo.com',
         'enviar-mensaje' : 'Enviar mensaje',
         'mensaje' : 'Mensaje',
-        'tu-mensaje' : 'Tu mensaje'
+        'tu-mensaje' : 'Tu mensaje',
+        'sobre-mi-1' : 'Me llamo Sergio Orgaz Bravo, comencé en el mundo de la informática a los 8 años. Desde entonces, la tecnología se convirtió en parte de mi día a día. Con el tiempo, descubrí lo que era la programación y fue un punto de inflexión para mí: encontré una verdadera pasión en el desarrollo de software.',
+        'sobre-mi-2' : 'Desde ese momento, no he dejado de aprender y crear. Actualmente trabajo en proyectos que abarcan desde aplicaciones web hasta automatización de procesos, siempre buscando nuevos retos y tecnologías innovadoras.',
+        'sobre-mi-3' : 'Fuera del mundo tecnológico, disfruto mantenerme activo practicando deporte y explorando nuevos lugares. Ya sea yendo al gimnasio o descubriendo rincones escondidos, estos pasatiempos me mantienen lleno de energía e inspiración.'
     },
     en : {
         'experience' : 'Experience',
@@ -75,7 +78,10 @@ export const ui = {
         'tu-correo' : 'your@email.com',
         'enviar-mensaje' : 'Send me a message',
         'mensaje' : 'Message',
-        'tu-mensaje' : 'Your message'
+        'tu-mensaje' : 'Your message',
+        'sobre-mi-1' : 'My name is Sergio Orgaz Bravo; I began my journey into computing at the age of eight. Since then, technology has become a part of my everyday life. Over time, I discovered programming, and it was a turning point for me: I found a true passion for software development.',
+        'sobre-mi-2' : "Since that moment, I haven't stopped learning and creating. Currently, I work on projects that span from web applications to process automation, always seeking new challenges and innovative technologies.",
+        'sobre-mi-3' : "Outside of the tech world, I enjoy staying active through sports and exploring new places. Whether hitting the gym, or discovering hidden spots, these hobbies keep me energized and inspired."
     }
 } as const
 

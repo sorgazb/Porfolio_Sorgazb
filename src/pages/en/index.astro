@@ -9,6 +9,8 @@ import Layout from '../../layouts/Layout.astro';
 import { useTranslations } from "../../i18n/utils";
 const lang = (Astro.url.pathname.split('/')[1] as "es" | "en") || 'es';
 const t = useTranslations(lang);
+import fotoSergio from '../../assets/imagen-sergio.webp';
+import Image from 'astro/components/Image.astro';
 ---
 
 <Layout title="Porfolio de Sergio Orgaz - Desarrollador y Programador Web"
@@ -68,8 +70,7 @@ const t = useTranslations(lang);
 			</div>
 			
 			<div class="order-1 md:order-2 col-span-1 flex flex-col gap-4 justify-center items-center">
-				<img class="rounded-full size-64 object-cover"
-				src="https://media.licdn.com/dms/image/v2/D4D03AQFqqiNJSWJeHw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1714907277104?e=2147483647&v=beta&t=gTcST7fXJYISlpO9TlUq7Z7ZOwCGE0az6gT62eV3V60" alt="sorgazb logo">
+				<Image src={fotoSergio} alt="Imagen Sergio" class:list={["rounded-full size-64 object-cover"]}/>
 			</div>
 		</div>
 		<div class="my-32">
