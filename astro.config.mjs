@@ -2,6 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import vercel from '@astrojs/vercel/serverless';
 import dotenv from 'dotenv';
+import sitemap from '@astrojs/sitemap';
 
 dotenv.config();
 
@@ -12,6 +13,8 @@ export default defineConfig({
       enabled: true,
     }
   }),
+  integrations: [sitemap()],
+  site: 'https://porfolio-sorgazb.vercel.app',
   vite: {
     plugins: [tailwindcss()],
     define: {
@@ -19,3 +22,6 @@ export default defineConfig({
     }
   }
 });
+
+
+

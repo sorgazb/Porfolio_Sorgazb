@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://porfolio-sorgazb.vercel.app/sitemap.xml
