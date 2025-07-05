@@ -1,72 +1,31 @@
-import type { APIRoute } from 'astro';
-import nodemailer from 'nodemailer';
-
-interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
-}
+// src/pages/api/contacto.ts
+import type { APIRoute } from "astro";
+import { sendEmail } from "../../lib/sendEmail";
+import type { ISendEmail } from "../../lib/sendEmail";
 
 export const POST: APIRoute = async ({ request }) => {
-  const data: ContactFormData = await request.json();
-  
-  if (!data.name || !data.email || !data.message) {
-    return new Response(JSON.stringify({ error: 'Todos los campos son requeridos' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(data.email)) {
-    return new Response(JSON.stringify({ error: 'Formato de email inválido' }), {
-      status: 400,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-
   try {
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.sendgrid.net',
-      port: 587,
-      auth: {
-        user: 'apikey',
-        pass: process.env.SENDGRID_API_KEY,
-      },
-    });
+    const body = (await request.json()) as Record<string, string>;
+    const { name, email, message } = body;
 
-    await transporter.sendMail({
-      from: 'sorgazb@gmail.com',
-      to: 'sorgazb@gmail.com',
-      replyTo: data.email,
-      subject: `Nuevo mensaje`,
-      html: `
-        <h3>Nuevo mensaje de contacto</h3>
-        <p><strong>Nombre:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${data.message.replace(/\n/g, '<br>')}</p>
-      `,
-    });
-    
-    return new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: { 
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
-    });
-  } catch (error: any) {
-    console.error('Error al enviar el correo:', error);
-    return new Response(JSON.stringify({ 
-      error: 'Error al enviar el mensaje',
-      details: error.message 
-    }), {
-      status: 500,
-      headers: { 
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
-    });
+    if (!name || !email || !message) {
+      return new Response(
+        JSON.stringify({ error: "Faltan parámetros obligatorios." }),
+        { status: 400, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    const info = await sendEmail({ name, email, message } as ISendEmail);
+
+    return new Response(
+      JSON.stringify({ ok: true, messageId: info.messageId }),
+      { status: 200, headers: { "Content-Type": "application/json" } }
+    );
+  } catch (err: any) {
+    console.error("Error enviando email:", err);
+    return new Response(
+      JSON.stringify({ error: "Error interno al enviar el mensaje." }),
+      { status: 500, headers: { "Content-Type": "application/json" } }
+    );
   }
 };
