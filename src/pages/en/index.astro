@@ -9,7 +9,7 @@ import Layout from '../../layouts/Layout.astro';
 import { useTranslations } from "../../i18n/utils";
 const lang = (Astro.url.pathname.split('/')[1] as "es" | "en") || 'es';
 const t = useTranslations(lang);
-import fotoSergio from '../assets/imagen-sergio.webp';
+import fotoSergio from '../../assets/imagen-sergio.webp';
 import Image from 'astro/components/Image.astro';
 ---
 
