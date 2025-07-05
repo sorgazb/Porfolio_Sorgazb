@@ -234,6 +234,43 @@ const lang = getLangFromUrl(Astro.url)
   		visibility: hidden;
 	}
 
+		.cv-btn {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.5rem 1rem;
+		font-size: 1rem;
+		font-weight: 600;
+		color: #fff;
+		border: 2px solid rgb(36, 41, 46);
+		border-radius: 9999px;
+		text-decoration: none;
+		overflow: hidden;
+		transition: color 0.3s ease, background-color 0.3s ease;
+	}
+
+	.cv-btn svg {
+		flex-shrink: 0;
+	}
+
+	.cv-btn::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		border-radius: inherit;
+		background-color: #0f5ac8;
+		border: 2px solid #0f5ac8;
+		transform: scaleX(0);
+		transform-origin: left;
+		transition: transform 0.3s ease;
+		z-index: -1;
+	}
+
+	.cv-btn:hover::before {
+		transform: scaleX(1);
+	}
+
 	.botonDesplazamiento:hover {
 		background-color: #074184;
 	}

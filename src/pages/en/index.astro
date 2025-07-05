@@ -9,7 +9,7 @@ import Layout from '../../layouts/Layout.astro';
 import { useTranslations } from "../../i18n/utils";
 const lang = (Astro.url.pathname.split('/')[1] as "es" | "en") || 'es';
 const t = useTranslations(lang);
-import fotoSergio from '../../assets/imagen-sergio.webp';
+import fotoSergio from '../assets/imagen-sergio.webp';
 import Image from 'astro/components/Image.astro';
 ---
 
@@ -63,6 +63,12 @@ import Image from 'astro/components/Image.astro';
 									<path fill="currentColor" fill-rule="evenodd" d="M3 8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8Zm5-3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3H8Zm7.597 2.214a1 1 0 0 1 1-1h.01a1 1 0 1 1 0 2h-.01a1 1 0 0 1-1-1ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z" clip-rule="evenodd"/>
 								</svg>
 								<span>Instagram</span>
+							</a>
+						</li>
+						<li>
+							<a href="/pdf/CV_SergioOrgaz.pdf" download class="cv-btn">
+								<svg fill="#ffffff" width="28" height="28" viewBox="-274.15 0 1200 1200" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M30 161c-16.5 0-30 13.5-30 30v827.8c0 16.5 13.5 30 30 30h591.7c16.5 0 30-13.5 30-30V343.7L469 161H30zm389.6 60v134.8c0 19.9 16.3 36.2 36.2 36.2h135.9v596.8H60V221h359.6z"></path><path d="M123.8 768.6h394.8v50H123.8zm0-124.6h394.8v50H123.8zm0-124.5h394.8v50H123.8z"></path><circle cx="194" cy="382.3" r="60"></circle></g></svg>
+								<span>CV</span>
 							</a>
 						</li>
 					</ul>
