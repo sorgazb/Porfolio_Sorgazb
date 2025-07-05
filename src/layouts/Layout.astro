@@ -20,6 +20,7 @@ const lang = getLangFromUrl(Astro.url)
 		<title>{title}</title>
 	</head>
 	<body class="overflow-x-hidden min-h-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]">
+		<a id="inicio"></a>
 		<div class="max-w-[1200px] flex flex-col justify-center mx-auto transition-colors duration-300">
 			<Header />
 			<main class="flex-1 pt-20">
@@ -28,6 +29,9 @@ const lang = getLangFromUrl(Astro.url)
 				</div>
 			</main>
 		</div>
+		<a href="#inicio" class="botonDesplazamiento">
+			<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 4V20M12 4L8 8M12 4L16 8" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+		</a>
 	</body>
 </html>
 
@@ -213,5 +217,30 @@ const lang = getLangFromUrl(Astro.url)
 
 	.instagram-btn:hover::before {
 		transform: scaleX(1);
+	}
+
+	.botonDesplazamiento {
+		background-color: #105eb9;
+		text-align: center;
+		border-radius: 50%;
+		position: fixed;
+		padding: 5px;
+		right: 1.875rem;
+		bottom: 1.875rem;
+		width: 2.5rem;
+  		height: 2.5rem;
+  		color: white;
+  		text-decoration: none;
+  		visibility: hidden;
+	}
+
+	.botonDesplazamiento:hover {
+		background-color: #074184;
+	}
+
+	@media only screen and (min-width: 900px) {
+		.botonDesplazamiento {
+			visibility: visible;
+		}
 	}
 </style>
