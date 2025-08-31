@@ -8,25 +8,25 @@ const translatePath = useTranslatedPath(lang);
 const isDefaultLang = lang === 'es';
 const basePath = isDefaultLang ? '' : `/${lang}`;
 ---
-<header class="fixed top-0 z-50 flex items-center justify-center w-full mx-auto transition-all duration-300" id="main-header">
+<header class="fixed top-0 z-50 flex items-center justify-center w-full mx-auto transition-all duration-300 text-gray-400" id="main-header">
   <nav class="flex px-3 py-2 text-sm font-medium rounded-full justify-center items-center transition-all duration-300 backdrop-blur-md w-full max-w-[1200px]" id="main-nav">
     <div class="hidden min-[426px]:flex space-x-4">
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#workexperience`}>
+      <a class="relative block px-3 py-1 transition hover:text-blue-500" href={`${basePath}/#workexperience`}>
         {t('experience')}
       </a>
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#studies`}>
+      <a class="relative block px-3 py-1 transition hover:text-blue-500" href={`${basePath}/#studies`}>
         {t('studies')}
       </a>
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#projects`}>
+      <a class="relative block px-3 py-1 transition hover:text-blue-500" href={`${basePath}/#projects`}>
         {t('projects')}
       </a>
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#skills`}>
+      <a class="relative block px-3 py-1 transition hover:text-blue-500" href={`${basePath}/#skills`}>
         {t('skills')}
       </a>
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#aboutme`}>
+      <a class="relative block px-3 py-1 transition hover:text-blue-500" href={`${basePath}/#aboutme`}>
         {t('about-me')}
       </a>
-      <a class="relative block px-3 py-1 transition hover:text-blue-500 dark:hover:text-blue-500" href={`${basePath}/#contact`}>
+      <a class="relative block px-3 py-1 transition hover:text-blue-500" href={`${basePath}/#contact`}>
         {t('contact')}
       </a>
       <a href="/#">
@@ -35,7 +35,7 @@ const basePath = isDefaultLang ? '' : `/${lang}`;
     </div>
     
     <div class="flex items-center gap-3">
-      <button id="mobile-menu-button" class="min-[426px]:hidden p-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+      <button id="mobile-menu-button" class="min-[426px]:hidden p-2 rounded-md hover:bg-gray-800 transition-colors">
         <svg class="w-6 h-6 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
@@ -43,14 +43,14 @@ const basePath = isDefaultLang ? '' : `/${lang}`;
     </div>
   </nav>
   
-  <div id="mobile-menu" class="min-[426px]:hidden hidden absolute top-full left-0 right-0 mt-1 bg-white/95 dark:bg-gray-900/95 backdrop-blur-lg shadow-lg rounded-b-lg py-3 transition-all duration-300">
+  <div id="mobile-menu" class="min-[426px]:hidden hidden absolute top-full left-0 right-0 mt-1 bg-gray-900/95 backdrop-blur-lg shadow-lg rounded-b-lg py-3 transition-all duration-300">
     <div class="max-w-[1200px] mx-auto px-4">
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#workexperience`}>{t('experience')}</a>
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#studies`}>{t('studies')}</a>
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#projects`}>{t('projects')}</a>
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#skills`}>{t('skills')}</a>
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#aboutme`}>{t('about-me')}</a>
-      <a class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-blue-500 dark:hover:text-blue-400 rounded-md" href={`${basePath}/#contact`}>{t('contact')}</a>
+      <a class="block py-2 px-4 hover:bg-gray-800 hover:text-blue-400 rounded-md" href={`${basePath}/#workexperience`}>{t('experience')}</a>
+      <a class="block py-2 px-4 hover:bg-gray-800 hover:text-blue-400 rounded-md" href={`${basePath}/#studies`}>{t('studies')}</a>
+      <a class="block py-2 px-4 hover:bg-gray-800 hover:text-blue-400 rounded-md" href={`${basePath}/#projects`}>{t('projects')}</a>
+      <a class="block py-2 px-4 hover:bg-gray-800 hover:text-blue-400 rounded-md" href={`${basePath}/#skills`}>{t('skills')}</a>
+      <a class="block py-2 px-4 hover:bg-gray-800 hover:text-blue-400 rounded-md" href={`${basePath}/#aboutme`}>{t('about-me')}</a>
+      <a class="block py-2 px-4 hover:bg-gray-800 hover:text-blue-400 rounded-md" href={`${basePath}/#contact`}>{t('contact')}</a>
       <a href="/#">
         <SelectLang />
       </a>
@@ -115,10 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function updateNavBackground() {
     if (window.scrollY > scrollThreshold) {
-      nav.classList.add('bg-white/90', 'dark:bg-gray-900/90', 'shadow-md', 'border', 'border-gray-100', 'dark:border-gray-700/30');
+      nav.classList.add('bg-gray-900/90', 'shadow-md', 'border', 'border-gray-700/30');
       nav.classList.remove('bg-transparent', 'shadow-none', 'border-transparent');
     } else {
-      nav.classList.remove('bg-white/90', 'dark:bg-gray-900/90', 'shadow-md', 'border', 'border-gray-100', 'dark:border-gray-700/30');
+      nav.classList.remove('bg-gray-900/90', 'shadow-md', 'border', 'border-gray-700/30');
       nav.classList.add('bg-transparent', 'shadow-none', 'border-transparent');
     }
   }
